@@ -1,0 +1,7 @@
+source/
+docs/screenshots/
+*.log
+*_REPORT.txt
+.env
+.env.*
+node_modules/
