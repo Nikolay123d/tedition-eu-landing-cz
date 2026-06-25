@@ -1,21 +1,24 @@
-const FACEBOOK_URL = "https://www.facebook.com/share/19PVxfJMw2/";
-const POPUP_KEY = "tedition_intro_popup_closed";
+const POPUP_KEY = "tedition_scroll_popup_closed";
 const PRELOADER_KEY = "tedition_preloader_seen";
 
 const body = document.body;
+const header = document.querySelector("#header");
 const preloader = document.querySelector("#preloader");
-const menuToggle = document.querySelector(".menu-toggle");
-const mobileMenu = document.querySelector("#mobileMenu");
+const menuButton = document.querySelector("#menuButton");
+const navOverlay = document.querySelector("#navOverlay");
+const navClose = document.querySelector("#navClose");
 const popup = document.querySelector("#introPopup");
 const form = document.querySelector("#leadForm");
 const requestType = document.querySelector("#requestType");
 const formStatus = document.querySelector("#formStatus");
+const dots = Array.from(document.querySelectorAll(".dot"));
+const sections = Array.from(document.querySelectorAll(".tracked-section"));
 
 function hidePreloader() {
   if (!preloader) return;
-  preloader.classList.add("is-hidden");
+  preloader.classList.add("hidden");
   sessionStorage.setItem(PRELOADER_KEY, "1");
-  setTimeout(() => preloader.remove(), 650);
+  setTimeout(() => preloader.remove(), 700);
 }
 
 function setupPreloader() {
@@ -25,8 +28,8 @@ function setupPreloader() {
     hidePreloader();
     return;
   }
-  setTimeout(hidePreloader, 1550);
-  setTimeout(hidePreloader, 2200);
+  setTimeout(hidePreloader, 1700);
+  setTimeout(hidePreloader, 2400);
 }
 
 function setupVideos() {
@@ -38,30 +41,25 @@ function setupVideos() {
     video.addEventListener("canplay", reveal, { once: true });
     video.play?.().catch(() => {});
   });
+}
 
-  const lazyVideo = document.querySelector(".lazy-video");
-  if (!lazyVideo) return;
-  const startLazyVideo = () => {
-    if (!lazyVideo.dataset.src) return;
-    const source = document.createElement("source");
-    source.src = lazyVideo.dataset.src;
-    source.type = "video/mp4";
-    lazyVideo.appendChild(source);
-    lazyVideo.removeAttribute("data-src");
-    lazyVideo.load();
-    lazyVideo.play?.().catch(() => {});
-  };
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) {
-        startLazyVideo();
-        observer.disconnect();
-      }
-    }, { rootMargin: "260px" });
-    observer.observe(lazyVideo);
-  } else {
-    setTimeout(startLazyVideo, 1200);
-  }
+function setHeaderState() {
+  const scrolled = window.scrollY > 80;
+  header?.classList.toggle("scrolled", scrolled);
+}
+
+function openMenu() {
+  navOverlay?.classList.add("open");
+  menuButton?.classList.add("menu-open");
+  menuButton?.setAttribute("aria-expanded", "true");
+  body.classList.add("menu-open");
+}
+
+function closeMenu() {
+  navOverlay?.classList.remove("open");
+  menuButton?.classList.remove("menu-open");
+  menuButton?.setAttribute("aria-expanded", "false");
+  body.classList.remove("menu-open");
 }
 
 function openPopup() {
@@ -77,6 +75,13 @@ function closePopup() {
   sessionStorage.setItem(POPUP_KEY, "1");
 }
 
+function maybeOpenScrollPopup() {
+  if (sessionStorage.getItem(POPUP_KEY) === "1") return;
+  const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+  const progress = window.scrollY / maxScroll;
+  if (progress >= 0.15) openPopup();
+}
+
 function scrollToForm(type = "Jiný dotaz") {
   if (requestType) requestType.value = type;
   closePopup();
@@ -84,18 +89,45 @@ function scrollToForm(type = "Jiný dotaz") {
   setTimeout(() => form?.querySelector("input[name='name']")?.focus(), 650);
 }
 
-menuToggle?.addEventListener("click", () => {
-  const expanded = menuToggle.getAttribute("aria-expanded") === "true";
-  menuToggle.setAttribute("aria-expanded", String(!expanded));
-  mobileMenu?.classList.toggle("open", !expanded);
-  body.classList.toggle("menu-open", !expanded);
+function updateDots() {
+  if (!sections.length || !dots.length) return;
+  let activeIndex = 0;
+  const marker = window.scrollY + window.innerHeight * 0.45;
+  sections.forEach((section, index) => {
+    if (section.offsetTop <= marker) activeIndex = index;
+  });
+  dots.forEach((dot, index) => dot.classList.toggle("active", index === activeIndex));
+}
+
+function setupReveal() {
+  const items = document.querySelectorAll(".fade-up");
+  if (!("IntersectionObserver" in window)) {
+    items.forEach((item) => item.classList.add("visible"));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18 });
+  items.forEach((item) => observer.observe(item));
+}
+
+menuButton?.addEventListener("click", () => {
+  if (navOverlay?.classList.contains("open")) closeMenu();
+  else openMenu();
 });
 
-mobileMenu?.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    menuToggle?.setAttribute("aria-expanded", "false");
-    mobileMenu.classList.remove("open");
-    body.classList.remove("menu-open");
+navClose?.addEventListener("click", closeMenu);
+navOverlay?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+
+dots.forEach((dot) => {
+  dot.addEventListener("click", () => {
+    const section = sections[Number(dot.dataset.dot)];
+    section?.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
 
@@ -109,10 +141,20 @@ document.querySelector(".popup-close")?.addEventListener("click", closePopup);
 
 form?.addEventListener("submit", (event) => {
   event.preventDefault();
-  formStatus.textContent = "Děkujeme. Toto je lokální demo - reálné odesílání připojíme po potvrzení e-mailu klienta.";
+  if (formStatus) {
+    formStatus.textContent = "Děkujeme. Toto je lokální demo - reálné odesílání připojíme po potvrzení e-mailu klienta.";
+  }
   form.reset();
 });
 
+window.addEventListener("scroll", () => {
+  setHeaderState();
+  updateDots();
+  maybeOpenScrollPopup();
+}, { passive: true });
+
 setupPreloader();
 setupVideos();
-setTimeout(openPopup, 1200);
+setupReveal();
+setHeaderState();
+updateDots();

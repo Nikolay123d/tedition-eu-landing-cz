@@ -3,294 +3,264 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tedition EU - práce, dokumenty, podnikání a projektová podpora v Česku. Seriózní kontaktní landing page pro lidi, firmy a projekty.">
+  <meta name="description" content="Tedition EU - práce, dokumenty, podnikání a projektová podpora v Česku. Seriózní kontaktní web pro lidi, firmy a projekty.">
   <meta property="og:title" content="Tedition EU - práce, dokumenty a projekty v Česku">
   <meta property="og:description" content="Pomáháme lidem a firmám řešit práci, dokumenty, podnikání a projekty v Česku. Napište na Facebook nebo nechte kontakt.">
   <meta property="og:image" content="assets/img/hero-poster.jpg">
   <title>Tedition EU - práce, dokumenty a projekty v Česku</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <div class="preloader" id="preloader" aria-hidden="true">
-    <div class="preloader-card">
-      <span class="brand-icon">TE</span>
-      <strong>Tedition EU</strong>
-      <p>Práce • dokumenty • projekty</p>
-      <i></i>
-    </div>
+    <div class="preloader-logo">Tedition EU</div>
+    <div class="preloader-line-wrap"><div class="preloader-line"></div></div>
+    <div class="preloader-tagline">Práce • dokumenty • projekty</div>
   </div>
 
-  <header class="site-header" id="top">
-    <a class="brand" href="#home" aria-label="Tedition EU">
-      <span class="brand-icon">TE</span>
-      <span>Tedition EU</span>
-    </a>
-    <nav class="desktop-nav" aria-label="Hlavní navigace">
-      <a href="#services">Služby</a>
-      <a href="#audience">Pro koho</a>
-      <a href="#process">Postup</a>
-      <a href="#contact">Kontakt</a>
-    </nav>
-    <a class="header-action" href="https://www.facebook.com/share/19PVxfJMw2/" target="_blank" rel="noopener">Facebook</a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Otevřít menu">
-      <span></span><span></span><span></span>
+  <header class="header" id="header">
+    <a class="header-logo light" href="#sec0" aria-label="Tedition EU">Tedition EU</a>
+    <button class="header-menu" id="menuButton" type="button" aria-expanded="false" aria-controls="navOverlay" aria-label="Otevřít menu">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
   </header>
 
-  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobilní navigace">
-    <a href="#services">Služby</a>
-    <a href="#audience">Pro koho</a>
-    <a href="#process">Postup</a>
-    <a href="#contact">Kontakt</a>
-    <a class="mobile-facebook" href="https://www.facebook.com/share/19PVxfJMw2/" target="_blank" rel="noopener">Napsat na Facebook</a>
+  <nav class="nav-overlay" id="navOverlay" aria-label="Hlavní navigace">
+    <div class="nav-overlay-header">
+      <a class="nav-overlay-logo" href="#sec0">Tedition EU</a>
+      <button class="nav-close" id="navClose" type="button" aria-label="Zavřít menu">×</button>
+    </div>
+    <div class="nav-links">
+      <a class="nav-link" href="#sec0">Úvod <span class="nav-link-arrow">→</span></a>
+      <a class="nav-link" href="#services">Služby <span class="nav-link-arrow">→</span></a>
+      <a class="nav-link" href="#audience">Pro koho <span class="nav-link-arrow">→</span></a>
+      <a class="nav-link" href="#process">Postup <span class="nav-link-arrow">→</span></a>
+      <a class="nav-link" href="#contact">Kontakt <span class="nav-link-arrow">→</span></a>
+    </div>
+    <div class="nav-footer">
+      <div class="nav-footer-lang">
+        <span class="active">CZ</span>
+        <span>Prague / Czechia</span>
+      </div>
+      <div class="nav-footer-socials">
+        <a class="nav-footer-social" href="https://www.facebook.com/share/19PVxfJMw2/" target="_blank" rel="noopener">Facebook</a>
+        <a class="nav-investor-login" href="#contact">Nechat kontakt</a>
+      </div>
+    </div>
   </nav>
 
-  <main>
-    <section class="hero" id="home">
-      <img class="hero-poster" src="assets/img/hero-poster.jpg" alt="" aria-hidden="true" loading="eager" decoding="sync">
-      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/img/hero-poster.jpg" aria-hidden="true">
-        <source src="assets/video/hero-teamwork.mp4" type="video/mp4">
-      </video>
+  <div class="section-dots" id="sectionDots" aria-hidden="true">
+    <button class="dot active" type="button" data-dot="0"></button>
+    <button class="dot" type="button" data-dot="1"></button>
+    <button class="dot" type="button" data-dot="2"></button>
+    <button class="dot" type="button" data-dot="3"></button>
+    <button class="dot" type="button" data-dot="4"></button>
+    <button class="dot dark" type="button" data-dot="5"></button>
+    <button class="dot dark" type="button" data-dot="6"></button>
+  </div>
+
+  <main id="mainPage">
+    <section class="hero tracked-section" id="sec0">
+      <div class="hero-video-bg">
+        <img class="hero-poster" src="assets/img/hero-poster.jpg" alt="" aria-hidden="true" loading="eager" decoding="sync">
+        <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="assets/img/hero-poster.jpg" aria-hidden="true">
+          <source src="assets/video/hero-teamwork.mp4" type="video/mp4">
+        </video>
+      </div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <p class="eyebrow">Tedition EU • Práce, dokumenty a projekty v Česku</p>
-        <h1>Pomáháme lidem a firmám řešit práci, dokumenty a projekty v Česku</h1>
-        <p class="hero-lead">Propojujeme firmy se specialisty, pomáháme s praktickými kroky kolem práce, dokumentů, podnikání a projektů v Česku. Napište nám a domluvíme další postup.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="https://www.facebook.com/share/19PVxfJMw2/" target="_blank" rel="noopener" data-source="hero-facebook">Napsat na Facebook</a>
-          <button class="btn light" type="button" data-scroll-form data-request-type="Jiný dotaz">Nechat kontakt</button>
-          <a class="btn ghost" href="#services">Zobrazit služby</a>
-        </div>
-        <div class="hero-trust" aria-label="Hlavní informace">
-          <span>Práce a specialisté</span>
-          <span>Dokumenty a pobyt</span>
-          <span>S.R.O / živnost / A1</span>
-          <span>Pro firmy</span>
-          <span>Projekty CZ / DE</span>
-          <span>Facebook / Messenger</span>
-        </div>
-      </div>
-      <a class="scroll-hint" href="#services" aria-label="Pokračovat na obsah">Dolů</a>
-    </section>
-
-    <section class="choice section" id="choice">
-      <div class="shell">
-        <div class="section-head">
-          <p class="eyebrow">Rychlý vstup</p>
-          <h2>Začněte jednou zprávou</h2>
-          <p>Nemusíte mít připravený dlouhý popis. Stačí kontakt, město a stručně napsat, jestli řešíte práci, dokumenty, podnikání nebo projekt.</p>
-        </div>
-        <div class="choice-grid">
-          <article class="choice-card featured">
-            <span>01</span>
-            <h3>Práce / specialisté</h3>
-            <p>Pro firmy i lidi: napište obor, město, počet lidí nebo zkušenosti a domluvíme další postup.</p>
-            <button type="button" data-scroll-form data-request-type="Práce / specialisté">Nechat kontakt</button>
-          </article>
-          <article class="choice-card">
-            <span>02</span>
-            <h3>Dokumenty / podnikání</h3>
-            <p>Víza, pobytové kroky, S.R.O, živnost, A1, faktury nebo DPH - popište situaci bez zbytečné administrativy.</p>
-            <button type="button" data-scroll-form data-request-type="Dokumenty / pobyt">Řešit dokumenty</button>
-          </article>
-          <article class="choice-card image-card">
-            <img src="assets/img/consultation.webp" alt="Konzultace u stolu" loading="lazy">
-            <div>
-              <span>03</span>
-              <h3>Projekt pro firmu</h3>
-              <p>Individuální zadání pro Česko, Německo nebo okolí: specialisté, technické směry, výroba, stavební nebo projektová podpora.</p>
-              <button type="button" data-scroll-form data-request-type="Projekt pro firmu">Domluvit postup</button>
-            </div>
-          </article>
+        <p class="hero-kicker">Práce, dokumenty a projekty v Česku</p>
+        <h1 class="hero-tagline"><strong>Tedition EU</strong><br>pomáhá lidem a firmám řešit další postup</h1>
+        <div class="hero-red-line"></div>
+        <div class="hero-sub-card">
+          <p class="hero-sub-title">Propojujeme firmy se specialisty, pomáháme s praktickými kroky kolem práce, dokumentů, podnikání a projektů v Česku.</p>
+          <div class="hero-actions">
+            <a class="btn-red" href="https://www.facebook.com/share/19PVxfJMw2/" target="_blank" rel="noopener">Napsat na Facebook</a>
+            <button class="btn-line" type="button" data-scroll-form data-request-type="Jiný dotaz">Nechat kontakt</button>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="media-band">
-      <div class="media-copy">
-        <p class="eyebrow">Jednoduchá komunikace</p>
-        <h2>Jeden kontakt pro práci, dokumenty i projektové zadání</h2>
-        <p>Landing page je postavený tak, aby návštěvník rychle pochopil, kam napsat, co poslat a jaký další krok čekat.</p>
-      </div>
-      <div class="media-video">
-        <img src="assets/img/office-video-poster.jpg" alt="" aria-hidden="true" loading="lazy">
-        <video class="lazy-video" muted loop playsinline preload="none" poster="assets/img/office-video-poster.jpg" aria-hidden="true" data-src="assets/video/office-atmosphere.mp4"></video>
+    <section class="intro-section tracked-section" id="services">
+      <div class="intro-eyebrow">S čím vám můžeme pomoct</div>
+      <h2 class="intro-title">Praktický servisní bod pro lidi, firmy a projekty</h2>
+      <p class="intro-text">Tedition EU není jen stavební ani jen pracovní stránka. Web ukazuje širší službu: práce, specialisté, dokumenty, podnikatelské kroky, faktury, DPH a projektová podpora podle konkrétní situace.</p>
+      <button class="btn-red" type="button" data-scroll-form data-request-type="Jiný dotaz">Domluvit další postup</button>
+    </section>
+
+    <section class="expertise-panel tracked-section" id="sec2" data-scroll-form data-request-type="Práce / specialisté">
+      <img src="assets/img/meeting.webp" alt="Firemní schůzka a propojení specialistů" loading="lazy">
+      <div class="expertise-panel-overlay"></div>
+      <div class="expertise-panel-content">
+        <div class="expertise-title">Práce a specialisté</div>
+        <p>Pomáháme propojit firmy a lidi podle konkrétní potřeby projektu.</p>
+        <div class="expertise-arrow">→</div>
       </div>
     </section>
 
-    <section class="services section" id="services">
-      <div class="shell">
-        <div class="section-head wide">
-          <p class="eyebrow">Služby</p>
-          <h2>S čím vám můžeme pomoct</h2>
-          <p>Tedition EU je navržený jako seriózní kontaktní hub pro lidi, firmy a projekty v Česku. Text používá bezpečné formulace bez neověřených právních slibů.</p>
-        </div>
-        <div class="service-grid">
-          <article>
-            <img src="assets/img/meeting.webp" alt="Firemní schůzka" loading="lazy">
+    <section class="expertise-panel tracked-section" id="sec3" data-scroll-form data-request-type="Dokumenty / pobyt">
+      <img src="assets/img/consultation.webp" alt="Konzultace k dokumentům a pobytu" loading="lazy">
+      <div class="expertise-panel-overlay"></div>
+      <div class="expertise-panel-content">
+        <div class="expertise-title">Dokumenty a podnikání</div>
+        <p>Pomoc s přípravou podkladů pro víza, pobyt, S.R.O, živnost, A1, faktury a DPH podle situace.</p>
+        <div class="expertise-arrow">→</div>
+      </div>
+    </section>
+
+    <section class="expertise-panel tracked-section" id="sec4" data-scroll-form data-request-type="Projekt pro firmu">
+      <img src="assets/img/solar-project.webp" alt="Technický projekt a solární panely" loading="lazy">
+      <div class="expertise-panel-overlay"></div>
+      <div class="expertise-panel-content">
+        <div class="expertise-title">Projekty pro firmy</div>
+        <p>Individuální řešení pro firmy v Česku, Německu a okolí podle oboru a zadání.</p>
+        <div class="expertise-arrow">→</div>
+      </div>
+    </section>
+
+    <section class="focus-section tracked-section" id="sec5">
+      <div class="focus-number">6</div>
+      <div class="focus-label">hlavních směrů podpory</div>
+    </section>
+
+    <section class="service-list-section">
+      <div class="service-list">
+        <article class="service-row fade-up">
+          <div class="service-dash"></div>
+          <div>
             <h3>Práce a specialisté</h3>
-            <p>Pomáháme propojit firmy a lidi podle konkrétní potřeby projektu.</p>
-          </article>
-          <article>
-            <img src="assets/img/consultation.webp" alt="Konzultace a dokumenty" loading="lazy">
+            <p>Propojení lidí a firem podle konkrétní potřeby projektu.</p>
+          </div>
+        </article>
+        <article class="service-row fade-up">
+          <div class="service-dash"></div>
+          <div>
             <h3>Dokumenty a pobytové záležitosti</h3>
             <p>Pomoc s přípravou podkladů pro víza, pobyt a další administrativu podle situace.</p>
-          </article>
-          <article>
-            <img src="assets/img/office-team.webp" alt="Podnikatelská konzultace" loading="lazy">
+          </div>
+        </article>
+        <article class="service-row fade-up">
+          <div class="service-dash"></div>
+          <div>
             <h3>S.R.O, živnost a A1</h3>
             <p>Podpora při základních podnikatelských krocích a orientaci v možnostech.</p>
-          </article>
-          <article>
-            <img src="assets/img/business-team.webp" alt="Firemní administrativa" loading="lazy">
+          </div>
+        </article>
+        <article class="service-row fade-up">
+          <div class="service-dash"></div>
+          <div>
             <h3>Faktury a DPH</h3>
             <p>Pomoc s praktickými otázkami kolem fakturace a spolupráce.</p>
-          </article>
-          <article>
-            <img src="assets/img/warehouse.webp" alt="Projektové a provozní zázemí" loading="lazy">
+          </div>
+        </article>
+        <article class="service-row fade-up">
+          <div class="service-dash"></div>
+          <div>
             <h3>Projekty pro firmy</h3>
             <p>Individuální řešení pro firmy v Česku, Německu a okolí podle oboru a zadání.</p>
-          </article>
-          <article>
-            <img src="assets/img/solar-project.webp" alt="Technický projekt se solárními panely" loading="lazy">
+          </div>
+        </article>
+        <article class="service-row fade-up">
+          <div class="service-dash"></div>
+          <div>
             <h3>Technické a stavební směry</h3>
             <p>Možnost řešit pracovní a projektové potřeby také v technických, stavebních a výrobních oborech.</p>
-          </article>
-        </div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="audience section" id="audience">
-      <div class="shell">
-        <div class="section-head wide">
-          <p class="eyebrow">Pro koho</p>
-          <h2>Pro koho je Tedition EU</h2>
-          <p>Stránka je postavená tak, aby každý návštěvník rychle našel svůj vstup: firma, uchazeč, podnikatel nebo projektový partner.</p>
+    <section class="audience-section tracked-section" id="audience">
+      <div class="audience-bg"></div>
+      <div class="audience-bg-overlay"></div>
+      <div class="audience-content">
+        <div class="audience-eyebrow">Pro koho je Tedition EU</div>
+        <h2 class="audience-title">Jeden kontakt pro různé praktické situace</h2>
+        <p class="audience-body">Pro firmy, uchazeče, podnikatele i projektová zadání. Každý vstup vede k jednoduché poptávce: co řešíte, kde, od kdy a jaký další krok potřebujete.</p>
+        <div class="audience-tags">
+          <span>Pro firmy</span>
+          <span>Pro uchazeče</span>
+          <span>Pro podnikatele</span>
+          <span>Pro projekty</span>
         </div>
-        <div class="audience-grid">
-          <article>
-            <span>Firmy</span>
-            <h3>Pro firmy</h3>
-            <p>Pokud potřebujete specialisty, provozní podporu nebo řešíte projekt v Česku, Německu a okolí.</p>
-          </article>
-          <article>
-            <span>Lidé</span>
-            <h3>Pro uchazeče</h3>
-            <p>Pokud řešíte práci, obor, město, zkušenosti nebo další praktické kroky kolem působení v Česku.</p>
-          </article>
-          <article>
-            <span>Byznys</span>
-            <h3>Pro podnikatele</h3>
-            <p>Pokud potřebujete orientaci kolem S.R.O, živnosti, A1, fakturace nebo základních podnikatelských kroků.</p>
-          </article>
-          <article>
-            <span>Projekt</span>
-            <h3>Pro projekty</h3>
-            <p>Pokud máte konkrétní technické, výrobní, solární, stavební nebo servisní zadání a hledáte další postup.</p>
-          </article>
-        </div>
+        <button class="btn-red" type="button" data-scroll-form data-request-type="Jiný dotaz">Nechat kontakt</button>
       </div>
     </section>
 
-    <section class="process section" id="process">
-      <div class="shell process-layout">
-        <div>
-          <p class="eyebrow">Postup</p>
-          <h2>Jak spolupráce probíhá</h2>
-          <p class="lead">Cílem je odstranit nejistotu. Návštěvník ví, co má poslat, a klient dostane použitelnou poptávku.</p>
+    <section class="process-section tracked-section" id="process">
+      <div class="process-inner">
+        <div class="line-art" aria-hidden="true">
+          <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#C8392B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="35" y1="350" x2="365" y2="350"/>
+            <rect x="55" y="180" width="70" height="170"/>
+            <rect x="75" y="205" width="12" height="18"/><rect x="95" y="205" width="12" height="18"/>
+            <rect x="75" y="245" width="12" height="18"/><rect x="95" y="245" width="12" height="18"/>
+            <rect x="155" y="115" width="80" height="235"/>
+            <rect x="175" y="145" width="14" height="18"/><rect x="205" y="145" width="14" height="18"/>
+            <rect x="175" y="190" width="14" height="18"/><rect x="205" y="190" width="14" height="18"/>
+            <rect x="175" y="235" width="14" height="18"/><rect x="205" y="235" width="14" height="18"/>
+            <line x1="285" y1="350" x2="285" y2="175"/>
+            <circle cx="285" cy="175" r="4" fill="#C8392B" stroke="none"/>
+            <line x1="285" y1="171" x2="270" y2="145"/>
+            <line x1="285" y1="171" x2="304" y2="150"/>
+            <line x1="285" y1="171" x2="284" y2="200"/>
+            <circle cx="318" cy="98" r="26"/>
+            <path d="M80 100 Q88 90 96 100"/>
+            <path d="M110 78 Q120 68 130 78"/>
+            <circle cx="110" cy="320" r="12"/>
+            <line x1="110" y1="332" x2="110" y2="350"/>
+            <circle cx="250" cy="320" r="12"/>
+            <line x1="250" y1="332" x2="250" y2="350"/>
+            <path d="M120 330 C155 300 205 302 240 330"/>
+          </svg>
         </div>
-        <div class="steps">
-          <article><span>01</span><strong>Napíšete nám</strong><p>Facebook, formulář nebo telefon po doplnění kontaktů.</p></article>
-          <article><span>02</span><strong>Upřesníme situaci</strong><p>Město, obor, dokumenty, projekt, termín nebo počet lidí.</p></article>
-          <article><span>03</span><strong>Navrhneme vhodný postup</strong><p>Směr se řeší podle konkrétní situace a potvrzených možností.</p></article>
-          <article><span>04</span><strong>Domluvíme další kroky</strong><p>Další postup se potvrdí individuálně podle zadání.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="trust section">
-      <div class="shell trust-grid">
-        <div class="trust-panel">
-          <p class="eyebrow">Důvěra bez přehánění</p>
-          <h2>Seriózní prezentace bez falešných slibů</h2>
-          <p>Web nepoužívá smyšlené recenze, neověřená čísla ani garantované výsledky. Staví na jasné nabídce, kontaktech a jednoduchém postupu.</p>
-          <div class="trust-tags">
-            <span>Rychlá odpověď</span>
-            <span>Osobní přístup</span>
-            <span>Pro uchazeče i firmy</span>
-            <span>Český trh</span>
+        <div class="process-content fade-up">
+          <div class="process-eyebrow">Jak to funguje</div>
+          <h2 class="process-title">Bez zbytečných slibů. Nejdřív situace, potom další postup.</h2>
+          <div class="steps">
+            <article><span>01</span><strong>Napíšete nám</strong><p>Facebook nebo krátký formulář.</p></article>
+            <article><span>02</span><strong>Upřesníme situaci</strong><p>Město, obor, dokumenty, projekt nebo termín.</p></article>
+            <article><span>03</span><strong>Navrhneme vhodný postup</strong><p>Podle konkrétní situace a potvrzených možností.</p></article>
+            <article><span>04</span><strong>Domluvíme další kroky</strong><p>Další postup se potvrdí individuálně podle zadání.</p></article>
           </div>
         </div>
-        <img src="assets/img/business-team.webp" alt="Týmová firemní konzultace" loading="lazy">
       </div>
     </section>
 
-    <section class="contact section" id="contact">
-      <div class="shell contact-layout">
-        <div>
-          <p class="eyebrow">Kontakt</p>
-          <h2>Nechte nám kontakt</h2>
-          <p class="lead">Napište, co řešíte. Stačí stručně popsat situaci a Tedition EU se vám ozve s dalším postupem.</p>
-          <div class="contact-actions">
-            <a class="btn primary" href="https://www.facebook.com/share/19PVxfJMw2/" target="_blank" rel="noopener">Napsat na Facebook</a>
-            <a class="btn ghost-dark" href="tel:+420XXXXXXXXX">Telefon doplníme</a>
-          </div>
-        </div>
-        <form class="lead-form" id="leadForm">
-          <label>Jméno
-            <input name="name" type="text" placeholder="Vaše jméno" required>
-          </label>
-          <label>Telefon
-            <input name="phone" type="tel" placeholder="+420 ..." required>
-          </label>
-          <label>E-mail
-            <input name="email" type="email" placeholder="vas@email.cz">
-          </label>
-          <label>Typ poptávky
-            <select name="request_type" id="requestType" required>
-              <option value="">Vyberte možnost</option>
-              <option>Práce / specialisté</option>
-              <option>Dokumenty / pobyt</option>
-              <option>S.R.O / živnost / A1</option>
-              <option>Faktury / DPH</option>
-              <option>Projekt pro firmu</option>
-              <option>Jiný dotaz</option>
-            </select>
-          </label>
-          <label>Město
-            <input name="city" type="text" placeholder="Praha, Brno, Plzeň...">
-          </label>
-          <label>Zpráva
-            <textarea name="message" rows="5" placeholder="Napište stručně, co potřebujete." required></textarea>
-          </label>
-          <button class="btn submit" type="submit">Odeslat poptávku</button>
-          <p class="form-status" id="formStatus" role="status"></p>
-        </form>
-      </div>
+    <section class="contact-section tracked-section" id="contact">
+      <div class="contact-title">Nechte nám kontakt</div>
+      <p class="contact-body">Napište stručně, co řešíte. Formulář je zatím demo-safe; reálné odesílání se připojí po potvrzení e-mailu klienta.</p>
+      <form class="contact-form" id="leadForm">
+        <input class="field" name="name" type="text" placeholder="JMÉNO *" required>
+        <input class="field" name="phone" type="tel" placeholder="TELEFON *" required>
+        <input class="field" name="email" type="email" placeholder="E-MAIL">
+        <select class="field" name="request_type" id="requestType" required>
+          <option value="">TYP POŽADAVKU *</option>
+          <option>Práce / specialisté</option>
+          <option>Dokumenty / pobyt</option>
+          <option>S.R.O / živnost / A1</option>
+          <option>Faktury / DPH</option>
+          <option>Projekt pro firmu</option>
+          <option>Jiný dotaz</option>
+        </select>
+        <textarea class="field" name="message" rows="5" placeholder="ZPRÁVA *" required></textarea>
+        <button class="btn-red contact-submit" type="submit">Odeslat poptávku</button>
+        <p class="form-status" id="formStatus" role="status"></p>
+      </form>
+      <a class="contact-facebook" href="https://www.facebook.com/share/19PVxfJMw2/" target="_blank" rel="noopener">Napsat na Facebook →</a>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="shell footer-grid">
-      <div>
-        <a class="brand" href="#top"><span class="brand-icon">TE</span><span>Tedition EU</span></a>
-        <p>Práce, dokumenty, podnikání a projektová podpora v Česku. Kontakty klienta budou doplněny před publikací.</p>
-      </div>
-      <div>
-        <strong>Kontakt</strong>
-        <a href="https://www.facebook.com/share/19PVxfJMw2/" target="_blank" rel="noopener">Facebook / Messenger</a>
-        <span>Telefon: doplníme</span>
-        <span>E-mail: doplníme</span>
-      </div>
-      <div>
-        <strong>Demo poznámka</strong>
-        <span>Toto je lokální demo návrh.</span>
-        <span>Reálný formulář se připojí po potvrzení e-mailu.</span>
-      </div>
-    </div>
+    <div class="footer-logo">Tedition EU</div>
+    <div class="footer-address">Práce, dokumenty a projekty v Česku</div>
+    <a class="footer-contacts-link" href="https://www.facebook.com/share/19PVxfJMw2/" target="_blank" rel="noopener">FACEBOOK / MESSENGER →</a>
+    <div class="footer-note">Kontakty klienta budou doplněny před finální publikací.</div>
   </footer>
 
   <aside class="intro-popup" id="introPopup" aria-live="polite">
@@ -299,9 +269,9 @@
     <h2>Potřebujete poradit, kde začít?</h2>
     <p>Napište nám na Facebook nebo nechte kontakt. Podíváme se na vaši situaci a poradíme, jaký postup dává smysl.</p>
     <div class="popup-actions">
-      <a class="btn primary" href="https://www.facebook.com/share/19PVxfJMw2/" target="_blank" rel="noopener">Napsat na Facebook</a>
-      <button class="btn light" type="button" data-popup-contact>Nechat kontakt</button>
-      <button class="btn plain" type="button" data-popup-continue>Pokračovat na web</button>
+      <a class="btn-red" href="https://www.facebook.com/share/19PVxfJMw2/" target="_blank" rel="noopener">Napsat na Facebook</a>
+      <button class="btn-line dark" type="button" data-popup-contact>Nechat kontakt</button>
+      <button class="btn-plain" type="button" data-popup-continue>Pokračovat na web</button>
     </div>
   </aside>
 

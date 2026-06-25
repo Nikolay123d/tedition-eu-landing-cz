@@ -45,7 +45,9 @@ All media is stored locally for the Tedition EU local demo. The page does not ho
   - Download URL: https://images.unsplash.com/photo-1509391366360-2e959784a276
   - Local processing: converted to WebP and used to support the technical/solar project direction.
 
-## Provided Source
+## Provided Design Source
 
 - Nikolaj provided Files.fm inspiration link: https://files.fm/f/webpuhzfuu
-- Download from PowerShell was blocked by Cloudflare JavaScript/cookie challenge, so the final demo was built as an original page from the project brief and does not copy the source branding, identity, or text.
+- Source file saved locally: `source/index-6.html` (gitignored, not published).
+- Used only as design/interaction reference: preloader, fixed header, full-screen navigation overlay, section dots, full-screen media panels, red corporate accent and editorial typography.
+- Source-brand, investor/private-market wording, fake stats and identity were not copied into the public Tedition EU page.
